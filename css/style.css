@@ -1027,11 +1027,13 @@ section:nth-child(odd) .animate.scroll,
     }
 
     .home {
+        margin-top: 80px;
         display: flex;
         justify-content: center;
         align-items: center;
         align-content: space-evenly;
         flex-wrap: wrap;
+        margin-bottom: 40px;
     }
 
     .home-content .btn-box {
