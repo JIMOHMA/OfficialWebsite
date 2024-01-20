@@ -497,14 +497,14 @@
         <h2 class="heading">Contact <span>Me!</span></h2>
         <!-- <h2 class="heading">Contact <span>Me!</span><span class="animate scroll" style="--i:1;"></span></h2> -->
 
-        <form action="#">
+        <form name="contact" method="POST" data-netlify="true">
             <div class="input-box">
                 <div class="input-field">
-                    <input type="text" placeholder="Full Name" required>
+                    <input name="name" type="text" placeholder="Full Name" required>
                     <span class="focus"></span>
                 </div>
                 <div class="input-field">
-                    <input type="text" placeholder="Email Address" required>
+                    <input name="email" type="email" placeholder="Email Address" required>
                     <span class="focus"></span>
                 </div>
 
@@ -525,7 +525,7 @@
             </div>
 
             <div class="textarea-field">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Your Message" required></textarea>
+                <textarea name="message" name="" id="" cols="30" rows="10" placeholder="Your Message" required></textarea>
                 <span class="focus"></span>
 
                 <!-- <span class="animate scroll" style="--i:7;"></span> -->
