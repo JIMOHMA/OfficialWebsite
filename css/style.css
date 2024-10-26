@@ -96,7 +96,7 @@ section {
     margin-top: 50px;
     padding-top: 20rem;
 
-    background: url('/images/home.jpg') no-repeat;
+    /* background: url('/images/home.jpg') no-repeat; */
     background-size: cover;
     background-position: center;
     
