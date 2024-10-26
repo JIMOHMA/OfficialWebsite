@@ -821,6 +821,12 @@ span {
     cursor: pointer;
 }
 
+#response-message {
+    font-size: 1.5rem;
+    text-align: center;
+    padding-top: 2rem;
+}
+
 .footer {
     display: flex;
     justify-content: space-between;

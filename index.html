@@ -532,7 +532,7 @@
         <h2 class="heading">Contact <span>Me!</span></h2>
         <!-- <h2 class="heading">Contact <span>Me!</span><span class="animate scroll" style="--i:1;"></span></h2> -->
 
-        <form name="contact" onsubmit="submitMessage()">
+        <form onsubmit="submitMessage(event)">
             <div class="input-box">
                 <div class="input-field">
                     <input id="name" name="name" type="text" placeholder="Full Name" required>
@@ -567,12 +567,10 @@
             </div>
 
             <div class="btn-box btns">
-                <button type="submit" class="btn">Submit</button>
-                <input type="submit" class="btn">
-
-                <!-- <span class="animate scroll" style="--i:9;"></span> -->
+                <button type="submit" class="btn" id="submitButton">Submit</button>
             </div>
         </form>
+        <p id="response-message">Email failed to send. Please Try Again!</p>
     </section>
 
     <!-- footer design -->
@@ -597,23 +595,48 @@
 
     <script src="js/script.js"></script>
     <script>
-        const submitMessage = (e) => {
-            e.preventDefault();
+        const submitMessage = async (event) => {
+            event.preventDefault();
+            // disable the submit button
+            $("#submitButton").prop("disabled", true)
+            $("#response-message").text("")
 
-            try {                
-                console.log("here")
-                // get data from form and send to server endpoint
-                const fullname = $("#name").val();
-                const email = $("#email").val();
-                const number = $("#number").val();
-                const subject = $("#subject").val();
-                const message = $("#message").val();
-    
-                console.log(fullname)
-            } catch (error) {
-                console.log("Error is ", error)
+            // get data from form and send to server endpoint
+            const fullname = $("#name").val();
+            const email = $("#email").val();
+            const number = $("#number").val();
+            const subject = $("#subject").val();
+            const message = $("#message").val();
+
+            const formData = {fullname, email, number, subject, message}
+            console.log(formData)
+
+            const response = await fetch("http://localhost:4000/portfolio-contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            })
+
+            const responseInfo = await response.json()
+            if (response.ok) {
+                $("#response-message").text(responseInfo.message)
+                $("#name").val('');
+                $("#email").val('');
+                $("#number").val('');
+                $("#subject").val('');
+                $("#message").val('');
+            }
+            
+            else {
+                $("#response-message").text("Failed to send. Please try again!")
             }
 
+            // enable the button after 5 seconds
+            setTimeout(() => {
+                $("#submitButton").prop("disabled", false)
+            }, 5000)
         }
     </script>
 </body>
