@@ -85,16 +85,20 @@ section {
     padding: 10rem 9% 2rem;
 }
 
-.home {
+#home {
+    min-height: 95vh;
     position: relative;
-    margin-top: 50px;
+    
     display: flex;
-    align-items: center;
-    padding: 0 9%;
+    align-items: start;
+    justify-content: space-around;
+    
+    margin-top: 50px;
+    padding-top: 20rem;
+
     background: url('/images/home.jpg') no-repeat;
     background-size: cover;
     background-position: center;
-    justify-content: space-around;
     
 }
 
@@ -278,11 +282,13 @@ section {
 }
 
 .home-sci {
+    align-self: center;
     position: absolute;
+    
     bottom: 4rem;
-    width: 170px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    column-gap: 3rem;
 }
 
 .home-sci a {
@@ -955,8 +961,8 @@ section:nth-child(odd) .animate.scroll,
         padding: 10rem 4% 2rem;
     }
 
-    .home {
-        padding: 0 4%;
+    #home {
+        padding: 20rem 4%;
     }
 
     .footer {
@@ -1029,14 +1035,18 @@ section:nth-child(odd) .animate.scroll,
         transition-delay: .25s;
     }
 
-    .home {
-        margin-top: 80px;
+    #home {
+        /* min-height: 50vh; */
+        margin-top: 0;
+        padding-top: 10rem;
+
+        margin-top: 2rem;
         display: flex;
+        flex-direction: column;
+        row-gap: 3rem;
         justify-content: center;
         align-items: center;
         align-content: space-evenly;
-        flex-wrap: wrap;
-        margin-bottom: 40px;
     }
 
     .home-content .btn-box {
@@ -1055,7 +1065,18 @@ section:nth-child(odd) .animate.scroll,
         margin-bottom: 20px;
     }
 
+    .home-content {
 
+    }
+
+    .profile-pic {
+
+    }
+
+    .home-sci {
+        /* margin-top: 4rem; */
+        bottom: 10rem;
+    }
 }
 
 @media (max-width: 520px) {
@@ -1063,7 +1084,7 @@ section:nth-child(odd) .animate.scroll,
         font-size: 50%;
     }
 
-    .home {
+    #home {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1076,7 +1097,7 @@ section:nth-child(odd) .animate.scroll,
     }
 
     .home-sci {
-        width: 160px;
+        /* width: 160px; */
     }
 
     .home-sci a {
@@ -1087,7 +1108,7 @@ section:nth-child(odd) .animate.scroll,
 
 @media (max-width: 462px) {
 
-    .home {
+    #home {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1113,13 +1134,6 @@ section:nth-child(odd) .animate.scroll,
 }
 
 @media (max-width: 371px) {
-    .home {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-
     .home-content {
         display: flex;
         align-items: center;
@@ -1129,6 +1143,16 @@ section:nth-child(odd) .animate.scroll,
 
     .home-content h1 {
         font-size: 5rem;
+    }
+
+    
+    .home-sci {
+        /* margin-top: 4rem; */
+
+    }
+
+    .profile-pic {
+        margin-bottom: 4rem;
     }
 }
 
