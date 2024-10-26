@@ -7,9 +7,9 @@ const app = express()
 app.use(cors())
 app.use(express.json());
 
-app.get('/',  (req, res) => {
-    res.send('DONE!')
-})
+// app.get('/',  (req, res) => {
+//     res.send('DONE!')
+// })
 
 app.post('/portfolio-contact', async (req, res) => {
     // send the email to mail4ayodelemee@gmail.com
@@ -44,7 +44,7 @@ app.post('/portfolio-contact', async (req, res) => {
     try {
         const response = await transporter.sendMail(mailOptions);
         console.log("Sent email successfully!!!");
-        res.json({message: "Email Sent! We'll be in touch soon!"})
+        res.json({message: "Message sent. We'll be in touch soon. Thank you!"})
         
     } catch (error) {
         console.error("Error sending email:", error);

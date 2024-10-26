@@ -601,7 +601,7 @@
             // disable the submit button
             $("#submitButton").prop("disabled", true)
             $("#submitButton").css("cursor", "not-allowed")
-            $("#response-message").text("")
+            $("#response-message").text("Sending message...") 
 
             // get data from form and send to server endpoint
             const fullname = $("#name").val();
