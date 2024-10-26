@@ -950,6 +950,20 @@ section:nth-child(odd) .animate.scroll,
     width: 0;
 }
 
+#submitButton {
+    outline: none;
+    border: 1px solid transparent;
+    padding: 1rem 2rem;
+    background-color: #E0AA3E;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#submitButton:hover {
+    /* background-color: #d4a13b; */
+}
+
 
 /* BREAKPOINTS */
 @media (max-width: 1200px) {

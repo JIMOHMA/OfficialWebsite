@@ -567,10 +567,10 @@
             </div>
 
             <div class="btn-box btns">
-                <button type="submit" class="btn" id="submitButton">Submit</button>
+                <button type="submit" id="submitButton">Submit</button>
             </div>
         </form>
-        <p id="response-message">Email failed to send. Please Try Again!</p>
+        <p id="response-message"></p>
     </section>
 
     <!-- footer design -->
@@ -599,6 +599,7 @@
             event.preventDefault();
             // disable the submit button
             $("#submitButton").prop("disabled", true)
+            $("#submitButton").css("cursor", "not-allowed")
             $("#response-message").text("")
 
             // get data from form and send to server endpoint
@@ -611,32 +612,35 @@
             const formData = {fullname, email, number, subject, message}
             console.log(formData)
 
-            const response = await fetch("https://muyideen.onrender.com/portfolio-contact", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(formData)
-            })
+            const URL = "https://muyideen.onrender.com/portfolio-contact"
+            // const URL = "http://localhost:4000/portfolio-contact"
+            try {
+                const response = await fetch(URL, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                })
 
-            const responseInfo = await response.json()
-            if (response.ok) {
-                $("#response-message").text(responseInfo.message)
-                $("#name").val('');
-                $("#email").val('');
-                $("#number").val('');
-                $("#subject").val('');
-                $("#message").val('');
-            }
-            
-            else {
-                $("#response-message").text("Failed to send. Please try again!")
+                const responseInfo = await response.json()
+                if (response.ok) {
+                    $("#response-message").text(responseInfo.message)
+                    $("#name").val('');
+                    $("#email").val('');
+                    $("#number").val('');
+                    $("#subject").val('');
+                    $("#message").val('');
+                }
+            } catch (error) {
+                $("#response-message").text("Failed to send. Please try again!")   
             }
 
             // enable the button after 5 seconds
             setTimeout(() => {
                 $("#submitButton").prop("disabled", false)
-            }, 5000)
+                $("#submitButton").css("cursor", "pointer")
+            }, 2500)
         }
     </script>
 </body>

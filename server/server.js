@@ -44,7 +44,7 @@ app.post('/portfolio-contact', async (req, res) => {
     try {
         const response = await transporter.sendMail(mailOptions);
         console.log("Sent email successfully!!!");
-        res.json({message: "Email Sent"})
+        res.json({message: "Email Sent!"})
         
     } catch (error) {
         console.error("Error sending email:", error);
